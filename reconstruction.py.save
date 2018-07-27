@@ -1,0 +1,11 @@
+unscrambled = ""
+scrambled = open("puzzle.txt").read()
+x=scrambled.replace(",", "").replace("\n", " ").split(" ")
+unscrambled += x[0]
+key = unscrambled[-3:]
+for fragment in x:
+	if key in fragment:
+		if not(fragment in unscrambled):
+			unscrambled += fragment[2]
+			key = unscrambled[-2:]
+print(unscrambled)
